@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './_App.scss';
 import Selections from '../Selections/Selections';
+import SpinMe from '../SpinMe/SpinMe';
 
 class App extends Component {
 
@@ -8,7 +8,8 @@ class App extends Component {
     const url = `http://voiceboxpdx.com/api/v1/songs?by=popularity`
     try {
       const response = await fetch(url)
-      const songs = response.json()
+      const results = await response.json()
+      const songs = results.songs
       console.log(songs)
     } catch (error) {
       throw new Error('There was a problem getting the data')
@@ -20,8 +21,9 @@ class App extends Component {
       <div className="App">
         <header>
           <h1 className='main-title'>That's My Song</h1>
-          <Selections />
         </header>
+        <Selections />
+        <SpinMe />
       </div>
     );
   }
