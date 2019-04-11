@@ -12,5 +12,9 @@
   font-size: 1.5rem;
   height: 150px;
   margin-top: 10%;
+  padding: 10px 40px;
   width: 150px;
+  &:focus {
+    outline: 2px solid #5F6E8E;
+  }
 }
