@@ -3,18 +3,30 @@ import React from 'react';
 export default function Selections() {
   return (
     <div className='genre-selection-radio-wrapper'>
-      <label for='90s'>90s</label>
-      <input type='radio' name='90s'></input>
-      <label for='00s'>00s</label>
-      <input type='radio' name='00s'></input>
-      <label for='rap'>Rap</label>
-      <input type='radio' name='rap'></input>
-      <label for='rock'>Rock</label>
-      <input type='radio' name='rock'></input>
-      <label for='pop'>Pop</label>
-      <input type='radio' name='pop'></input>
-      <label for='wildcard'>Wildcard</label>
-      <input type='radio' name='wildcard'></input>            
+      <div className='inputs-wrapper'>
+        <label htmlFor='90s' className='genre-selection-labels'>90s</label>
+        <input type='radio' name='radio' id='90s'></input>
+      </div>
+      <div className='inputs-wrapper'>
+        <label htmlFor='00s' className='genre-selection-labels'>00s</label>
+        <input type='radio' name='radio' id='00s'></input>
+      </div>
+      <div className='inputs-wrapper'>
+        <label htmlFor='rap' className='genre-selection-labels'>Rap</label>
+        <input type='radio' name='radio' id='rap'></input>
+      </div>
+      <div className='inputs-wrapper'>
+        <label htmlFor='rock' className='genre-selection-labels'>Rock</label>
+        <input type='radio' name='radio' id='rock'></input>
+      </div>
+      <div className='inputs-wrapper'>
+        <label htmlFor='pop' className='genre-selection-labels'>Pop</label>
+        <input type='radio' name='radio' id='pop'></input>
+      </div>
+      <div className='inputs-wrapper'>
+        <label htmlFor='wildcard' className='genre-selection-labels'>Wildcard</label>
+        <input type='radio' name='radio' id='wildcard'></input>
+      </div>
     </div>
   )
 }
