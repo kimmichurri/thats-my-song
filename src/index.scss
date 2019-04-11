@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Audiowide|Economica');
-@import '/variables';
-@import './components/App/_App.scss';
+@import 'variables';
+@import './components/App/App';
 
 body {
   background-image: url('./assets/max-bender-510413-unsplash.jpg');
