@@ -5,7 +5,7 @@ import SpinMe from '../SpinMe/SpinMe';
 class App extends Component {
 
   async componentDidMount() {
-    const url = `http://voiceboxpdx.com/api/v1/songs?by=popularity`
+    const url = `http://voiceboxpdx.com/api/v1/songs/roulette?tag=Divas`
     try {
       const response = await fetch(url)
       const results = await response.json()
