@@ -1,0 +1,16 @@
+.spin-me-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.spin-me-button {
+  background-color: black;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-family: $main-font;
+  font-size: 1.5rem;
+  height: 150px;
+  margin-top: 10%;
+  width: 150px;
+}
