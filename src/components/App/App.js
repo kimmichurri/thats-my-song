@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './_App.scss';
+import Selections from '../Selections/Selections';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
       <div className="App">
         <header>
           <h1 className='main-title'>That's My Song</h1>
+          <Selections />
         </header>
       </div>
     );
