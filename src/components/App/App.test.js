@@ -1,7 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import App, { mapStateToProps, mapDispatchToProps } from './App';
-jest.mock('../../thunks/fetchSongs')
+jest.mock('../../thunks/fetchSongs');
 
 describe('App', () => {
   describe('mapStateToProps', () => {
