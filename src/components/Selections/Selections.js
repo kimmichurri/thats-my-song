@@ -3,24 +3,16 @@ import React, { Component } from 'react';
 export default class  Selections extends Component {
 
   triggerSelection = (e) => {
-    switch (e.target.value) {
-      case '90s':
-        console.log('clicked', e.target.value)
+    let url;
+    const { value } = e.target;
+    switch (value) {
+      case 'Wildcard':
+        url = `http://voiceboxpdx.com/api/v1/songs/roulette`
+        console.log('wildcard', url);
         break;
-      case '00s':
-        console.log('00s', e.target.value)
-        break;
-      case 'Rap':
-        console.log('Rap', e.target.value)
-        break;
-      case 'Rock':
-        console.log('Rock', e.target.value)
-        break;
-      case 'Pop':
-       console.log('Pop', e.target.value)
-        break;
-      default:
-        console.log('wildcard')
+      default: 
+        url = `http://voiceboxpdx.com/api/v1/songs/roulette?tag=${value}`
+        console.log(url);
     }
   }
 
