@@ -23,7 +23,8 @@ export class App extends Component {
 }
 
 App.propTypes = {
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  fetchSongs: PropTypes.func.isRequired
 }
 
 export const mapStateToProps = (state) => ({
