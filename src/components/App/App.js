@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Selections from '../Selections/Selections';
-import SpinMe from '../SpinMe/SpinMe';
+// import SpinMe from '../SpinMe/SpinMe';
 
 class App extends Component {
 
@@ -23,7 +23,7 @@ class App extends Component {
           <h1 className='main-title'>That's My Song</h1>
         </header>
         <Selections />
-        <SpinMe />
+        {/* <SpinMe /> */}
       </div>
     );
   }
