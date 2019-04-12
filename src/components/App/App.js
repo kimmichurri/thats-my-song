@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
 import Selections from '../Selections/Selections';
-// import SpinMe from '../SpinMe/SpinMe';
+import { connect } from 'react-redux';
+import { fetchSongs } from '../../thunks/fetchSongs';
+import { isLoading } from '../../actions';
 
-class App extends Component {
-
-  async componentDidMount() {
-    const url = `http://voiceboxpdx.com/api/v1/songs/roulette?tag=Divas`
-    try {
-      const response = await fetch(url)
-      const results = await response.json()
-      const songs = results.songs
-      console.log(songs)
-    } catch (error) {
-      throw new Error('There was a problem getting the data')
-    }
-  }
+export class App extends Component {
 
   render() {
     return (
@@ -23,10 +13,17 @@ class App extends Component {
           <h1 className='main-title'>That's My Song</h1>
         </header>
         <Selections />
-        {/* <SpinMe /> */}
       </div>
     );
   }
 }
 
-export default App;
+export const mapStateToProps = (state) => ({
+  loading: state.isLoading
+});
+
+export const mapDispatchToProps = (dispatch) => ({
+  fetchSongs: (url) => dispatch(fetchSongs(url))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

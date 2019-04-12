@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { fetchSongs } from '../../thunks/fetchSongs';
+import { connect } from 'react-redux';
 
-export default class  Selections extends Component {
+export class  Selections extends Component {
 
   setUrl = (e) => {
     let url;
@@ -9,10 +11,12 @@ export default class  Selections extends Component {
       case 'Wildcard':
         url = `http://voiceboxpdx.com/api/v1/songs/roulette`
         console.log('wildcard', url);
+        this.props.fetchSongs(url)
         break;
       default: 
         url = `http://voiceboxpdx.com/api/v1/songs/roulette?tag=${value}`
         console.log(url);
+        this.props.fetchSongs(url)
     }
   }
 
@@ -52,3 +56,10 @@ export default class  Selections extends Component {
     )
   }
 }
+
+export const mapDispatchToProps = (dispatch) => ({
+  fetchSongs: (url) =>  dispatch(fetchSongs(url))
+});
+
+export default connect(null, mapDispatchToProps)(Selections);
+
