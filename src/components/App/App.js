@@ -3,6 +3,7 @@ import Selections from '../Selections/Selections';
 import { connect } from 'react-redux';
 import { fetchSongs } from '../../thunks/fetchSongs';
 import { isLoading } from '../../actions';
+import Loader from '../Loader/Loader';
 
 export class App extends Component {
 
@@ -12,7 +13,7 @@ export class App extends Component {
         <header>
           <h1 className='main-title'>That's My Song</h1>
         </header>
-        <Selections />
+        {this.props.loading ? <Loader /> : <Selections /> }
       </div>
     );
   }
