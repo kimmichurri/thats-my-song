@@ -11,8 +11,8 @@ export class SongInfo extends Component {
         <p className='song-category secondary'>{this.props.currentCategory}</p>
         <h3 className='song-title'>{title}</h3>
         <p className='song-artist secondary'>{artist}</p>
-        <button className='song-info-page-buttons'>Spin {this.props.currentCategory} Again</button>
         <button className='song-info-page-buttons'>Add to Playlist</button>
+        <button className='song-info-page-buttons'>Spin {this.props.currentCategory} Again</button>
         <button className='song-info-page-buttons'>Return to Search</button>
       </div>
     )
