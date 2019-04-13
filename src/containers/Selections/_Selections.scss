@@ -40,4 +40,9 @@ label, input {
   &:focus {
     outline: 2px solid #5F6E8E;
   }
+  &:hover {
+    background-color: #120c16;
+    color: #B4A7BC;
+    cursor: pointer;
+  }
 }

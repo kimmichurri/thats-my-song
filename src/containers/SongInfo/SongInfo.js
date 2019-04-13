@@ -7,12 +7,13 @@ export class SongInfo extends Component {
   render() {
     const { title, artist } = this.props.currentSong;
     return (
-      <div>
-        <p>{this.props.currentCategory}</p>
-        <h4>{title}</h4>
-        <p>{artist}</p>
-        <button>Spin Again</button>
-        <button>Add to Playlist</button>
+      <div className='song-info-wrapper'>
+        <p className='song-category secondary'>{this.props.currentCategory}</p>
+        <h3 className='song-title'>{title}</h3>
+        <p className='song-artist secondary'>{artist}</p>
+        <button className='song-info-page-buttons'>Spin {this.props.currentCategory} Again</button>
+        <button className='song-info-page-buttons'>Add to Playlist</button>
+        <button className='song-info-page-buttons'>Return to Search</button>
       </div>
     )
   }

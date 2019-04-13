@@ -59,7 +59,7 @@ class  Selections extends Component {
           </div>
         </div>
         <div className='spin-me-button-wrapper'>
-          <button onClick={this.pickRandomSong} className='spin-me-button'>Spin me to find your next tune</button>
+          <button onClick={this.pickRandomSong} className='spin-me-button'>Take me to my tune!</button>
         </div>
       </section>
     )
