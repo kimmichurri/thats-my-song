@@ -1,4 +1,4 @@
-import { SongInfo, mapStateToProps } from './SongInfo';
+import { mapStateToProps } from './SongInfo';
 
 describe('SongInfo', () => {
   describe('mapStateToProps', () => {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Selections from '../Selections/Selections';
 import { connect } from 'react-redux';
 import { fetchSongs } from '../../thunks/fetchSongs';
-import Loader from '../Loader/Loader';
+import Loader from '../../components/Loader/Loader';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import SongInfo from '../SongInfo/SongInfo';

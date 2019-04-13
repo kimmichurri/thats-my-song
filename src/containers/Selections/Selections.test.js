@@ -1,5 +1,4 @@
-import { Selections } from './Selections';
-import { mapDispatchToProps } from '../App/App';
+import { mapDispatchToProps } from './Selections';
 jest.mock('../../thunks/fetchSongs');
 
 describe('Selections', () => {

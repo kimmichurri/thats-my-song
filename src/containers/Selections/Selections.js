@@ -3,7 +3,7 @@ import { fetchSongs } from '../../thunks/fetchSongs';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-export class  Selections extends Component {
+class  Selections extends Component {
 
   setUrl = (e) => {
     let url;
