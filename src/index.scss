@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Audiowide|Economica');
 @import 'variables';
-@import './components/App/App';
-@import './components/Selections/Selections';
+@import './containers/App/App';
+@import './containers/Selections/Selections';
 @import './components/Loader/Loader';
 
 body {
