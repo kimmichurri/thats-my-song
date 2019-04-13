@@ -3,28 +3,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 export class SongInfo extends Component {
-  constructor() {
-    super();
-    this.state = {
-      chosenSong: {}
-    }
-  }
-
-  generateRandomIndex = () => {
-    let randomIndex = Math.floor(Math.random() * 10);
-    console.log(randomIndex)
-    console.log(this.props.songs[randomIndex])
-    this.setState({chosenSong: this.props.songs[randomIndex]})
-  }
-
+  
   render() {
-    const {title, artist} = this.state.chosenSong
+    const { title, artist } = this.props.currentSong;
     return (
       <div>
-        <p>This is a song</p>
-        <h3>{title}</h3>
+        <p>{this.props.currentCategory}</p>
+        <h4>{title}</h4>
         <p>{artist}</p>
-        <button onClick={this.generateRandomIndex}>Spin Again</button>
+        <button>Spin Again</button>
         <button>Add to Playlist</button>
       </div>
     )
@@ -32,11 +19,14 @@ export class SongInfo extends Component {
 }
 
 SongInfo.propTypes = {
-  songs: PropTypes.array.isRequired
+  currentCategory: PropTypes.string.isRequired,
+  currentSong: PropTypes.object.isRequired
 }
 
 export const mapStateToProps = (state) => ({
-  songs: state.setSongs
+  currentCategory: state.setCurrentCategory,
+  currentSong: state.setCurrentSong
 });
+
 
 export default connect(mapStateToProps, null)(SongInfo);

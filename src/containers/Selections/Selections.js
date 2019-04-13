@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { fetchSongs } from '../../thunks/fetchSongs';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { setCurrentSong, setCurrentCategory} from '../../actions/index';
 
 class  Selections extends Component {
 
   setUrl = (e) => {
     let url;
     const { value } = e.target;
+    this.props.setCurrentCategory(value);
     switch (value) {
       case 'Wildcard':
         url = `http://voiceboxpdx.com/api/v1/songs/roulette`
@@ -19,6 +21,12 @@ class  Selections extends Component {
         console.log(url);
         this.props.fetchSongs(url)
     }
+  }
+
+  pickRandomSong = () => {
+    let randomIndex = Math.floor(Math.random() * 10); 
+    let randomSong = this.props.songs[randomIndex]
+    this.props.setCurrentSong(randomSong);
   }
 
   render() {
@@ -51,7 +59,7 @@ class  Selections extends Component {
           </div>
         </div>
         <div className='spin-me-button-wrapper'>
-          <button className='spin-me-button'>Spin me to find your next tune</button>
+          <button onClick={this.pickRandomSong} className='spin-me-button'>Spin me to find your next tune</button>
         </div>
       </section>
     )
@@ -59,12 +67,21 @@ class  Selections extends Component {
 }
 
 Selections.propTypes = {
-  fetchSongs: PropTypes.func.isRequired
+  songs: PropTypes.array.isRequired,
+  fetchSongs: PropTypes.func.isRequired,
+  setCurrentCategory: PropTypes.func.isRequired,
+  setCurrentSong: PropTypes.func.isRequired
 }
 
-export const mapDispatchToProps = (dispatch) => ({
-  fetchSongs: (url) =>  dispatch(fetchSongs(url))
+export const mapStateToProps = (state) => ({
+  songs: state.setSongs
 });
 
-export default connect(null, mapDispatchToProps)(Selections);
+export const mapDispatchToProps = (dispatch) => ({
+  fetchSongs: (url) =>  dispatch(fetchSongs(url)),
+  setCurrentCategory: (category) => dispatch(setCurrentCategory(category)),
+  setCurrentSong: (song) => dispatch(setCurrentSong(song))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Selections);
 
