@@ -13,6 +13,14 @@ app.get('/api/v1/playlist/', (request, response) => {
 });
 
 app.post('/api/v1/playlist/', (request, response) => {
+  const { title, artist, id } = request.body;
+  const newPlaylistSong = {
+    id,
+    title,
+    artist
+  }
+  app.locals.playlist.push(newPlaylistSong);
+  response.status(201).json(newPlaylistSong);
   //decide what to require from request.body
   //mark it by its existing id
   //send in the specific things as newPlaylistItem const from the body that you want, don't just spread it all in

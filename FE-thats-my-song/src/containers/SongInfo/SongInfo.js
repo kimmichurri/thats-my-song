@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchSongs } from '../../thunks/fetchSongs';
 import { setCurrentSong } from '../../actions/index';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'; 
+import { sendToPlaylist } from '../../thunks/sendToPlaylist';
 
 export class SongInfo extends Component {
 
@@ -27,6 +28,13 @@ export class SongInfo extends Component {
     let randomSong = this.props.songs[randomIndex];
     this.props.setCurrentSong(randomSong);
   }
+
+  addToPlaylist = () => {
+    console.log('add to playlist');
+    const url = 'http://localhost:3001/api/v1/playlist/';
+    const {title, artist, id} = this.props.currentSong;
+    this.props.sendToPlaylist(url, {title, artist, id});
+  }
   
   render() {
     const { title, artist } = this.props.currentSong;
@@ -35,7 +43,10 @@ export class SongInfo extends Component {
         <p className='song-category secondary'>{this.props.currentCategory}</p>
         <h3 className='song-title'>{title}</h3>
         <p className='song-artist secondary'>{artist}</p>
-        <button className='song-info-page-buttons'>Add to Playlist</button>
+        <button 
+          onClick={this.addToPlaylist}
+          className='song-info-page-buttons'>Add to Playlist
+        </button>
         <button 
           className='song-info-page-buttons' 
           value={this.props.currentCategory} 
@@ -54,7 +65,8 @@ SongInfo.propTypes = {
   currentSong: PropTypes.object.isRequired,
   songs: PropTypes.array.isRequired,
   fetchSongs: PropTypes.func.isRequired,
-  setCurrentSong: PropTypes.func.isRequired
+  setCurrentSong: PropTypes.func.isRequired,
+  sendToPlaylist: PropTypes.func.isRequired
 }
 
 export const mapStateToProps = (state) => ({
@@ -65,7 +77,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   fetchSongs: (url) => dispatch(fetchSongs(url)),
-  setCurrentSong: (song) => dispatch(setCurrentSong(song))
+  setCurrentSong: (song) => dispatch(setCurrentSong(song)),
+  sendToPlaylist: (url, song) => dispatch(sendToPlaylist(url, song))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongInfo);
