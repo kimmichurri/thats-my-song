@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+FE-thats-my-song/node_modules
 /.pnp
 .pnp.js
 
