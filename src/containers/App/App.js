@@ -16,9 +16,11 @@ export class App extends Component {
         <header>
           <h1 className='main-title'>That's My Song</h1>
         </header>
-        {this.props.loading ? <Loader /> : <Selections /> }
+        <Route exact path='/' component={Selections} />
+        <Route exact path='/song-info' component={SongInfo} />
+        {/* {this.props.loading ? <Loader /> : <Selections /> } */}
         {/* will need to route here on spin of button */}
-        <SongInfo />
+        {/* <SongInfo /> */}
       </div>
     );
   }

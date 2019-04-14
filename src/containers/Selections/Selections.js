@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchSongs } from '../../thunks/fetchSongs';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { setCurrentSong, setCurrentCategory} from '../../actions/index';
 
@@ -60,10 +61,13 @@ class  Selections extends Component {
         </div>
         <div className='spin-me-button-wrapper'>
           {!this.props.songs.length && <p className='please-select-category'>please select a category first</p>}
-          <button
-            disabled={!this.props.songs.length}
-            onClick={this.pickRandomSong}
-            className='spin-me-button'>Take me to my {this.props.currentCategory} tune!</button>
+          <NavLink to='/song-info'>
+            <button
+              disabled={!this.props.songs.length}
+              onClick={this.pickRandomSong}
+              className='spin-me-button'>Take me to my {this.props.currentCategory} tune!
+            </button>
+          </NavLink>
         </div>
       </section>
     )
