@@ -1,3 +1,5 @@
+import { setFetchError } from '../actions';
+
 export const sendToPlaylist = (url, song) => {
   return async (dispatch) => {
     const options = {
@@ -16,7 +18,7 @@ export const sendToPlaylist = (url, song) => {
         return data
       }
     } catch(error) {
-      console.log(error.message)
+      dispatch(setFetchError(error.message))
     }
   }
 }

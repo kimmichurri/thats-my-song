@@ -1,4 +1,4 @@
-import { isLoading, setSongs } from '../actions';
+import { isLoading, setSongs, setFetchError } from '../actions';
 
 export const fetchSongs = (url) => {
   return async (dispatch) => {
@@ -13,7 +13,7 @@ export const fetchSongs = (url) => {
       dispatch(setSongs(songs));
       dispatch(isLoading(false));
     } catch (error) {
-      console.log(error.message)
+      dispatch(setFetchError(error.message))
     }
   }
 }
