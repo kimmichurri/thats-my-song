@@ -1,6 +1,6 @@
-import { isLoading, setSongs, setFetchError } from '../actions';
+import { isLoading, setFetchError } from '../actions';
 
-export const fetchSongs = (url) => {
+export const getFromPlaylist = (url) => {
   return async (dispatch) => {
     try {
       dispatch(isLoading(true));
@@ -8,9 +8,8 @@ export const fetchSongs = (url) => {
       if(!response.ok) {
         throw new Error (response.statusText)
       }
-      const results = await response.json();
-      const songs = results.songs;
-      dispatch(setSongs(songs));
+      const playlistSongs = await response.json();
+      console.log(playlistSongs);
       dispatch(isLoading(false));
     } catch (error) {
       dispatch(setFetchError(error.message));

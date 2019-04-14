@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Selections from '../Selections/Selections';
 import { connect } from 'react-redux';
 import { fetchSongs } from '../../thunks/fetchSongs';
+import { getFromPlaylist } from '../../thunks/getFromPlaylist';
 import Loader from '../../components/Loader/Loader';
 import PropTypes from 'prop-types';
 import { Route, NavLink } from 'react-router-dom';
@@ -12,8 +13,10 @@ import { Playlist } from '../Playlist/Playlist';
 
 export class App extends Component {
 
-  goToFavorites = () => {
-    console.log('do some playlist stuff now')
+  goToPlaylist = () => {
+    console.log('do some playlist stuff now');
+    const url = 'http://localhost:3001/api/v1/playlist/';
+    this.props.getFromPlaylist(url);
   }
 
   render() {
@@ -22,7 +25,7 @@ export class App extends Component {
         <header>
           <NavLink className='playlist-navlink' to='/playlist'>
             <button
-              onClick={this.goToFavorites}
+              onClick={this.goToPlaylist}
               className='playlist-button'>Playlist
               <img className='headphones-icon' src={headphones} />
             </button>
@@ -48,7 +51,8 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  fetchSongs: (url) => dispatch(fetchSongs(url))
+  fetchSongs: (url) => dispatch(fetchSongs(url)),
+  getFromPlaylist: (url) => dispatch(getFromPlaylist(url))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
