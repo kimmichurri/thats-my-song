@@ -39,7 +39,8 @@ export class SongInfo extends Component {
         <button 
           className='song-info-page-buttons' 
           value={this.props.currentCategory} 
-          onClick={this.pickRandomSong}>Spin {this.props.currentCategory} Again</button>
+          onClick={this.pickRandomSong}>Spin {this.props.currentCategory} Again
+        </button>
         <NavLink to='/' id='return-to-search-navlink'>
           <button className='song-info-page-buttons'>Return to Search</button>
         </NavLink>
