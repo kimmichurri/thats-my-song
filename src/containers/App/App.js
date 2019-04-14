@@ -19,8 +19,6 @@ export class App extends Component {
         <Route exact path='/' component={Selections} />
         <Route exact path='/song-info' component={SongInfo} />
         {/* {this.props.loading ? <Loader /> : <Selections /> } */}
-        {/* will need to route here on spin of button */}
-        {/* <SongInfo /> */}
       </div>
     );
   }
