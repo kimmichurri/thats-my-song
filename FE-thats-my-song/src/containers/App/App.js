@@ -13,14 +13,15 @@ import Playlist from '../Playlist/Playlist';
 export class App extends Component {
 
   render() {
+    console.log(this.props);
     return (
       <div className="App">
         <header>
           <NavLink className='playlist-navlink' to='/playlist'>
             <button
-              // onClick={this.goToPlaylist}
               className='playlist-button'>Playlist
               <img className='headphones-icon' src={headphones} alt={'headphones icon for playlist button'}/>
+              {this.props.playlist.length}
             </button>
           </NavLink>
           <h1 className='main-title'>That's My Song</h1>
@@ -36,11 +37,13 @@ export class App extends Component {
 
 App.propTypes = {
   loading: PropTypes.bool.isRequired,
+  playlist: PropTypes.array.isRequired,
   fetchSongs: PropTypes.func.isRequired
 }
 
 export const mapStateToProps = (state) => ({
-  loading: state.isLoading
+  loading: state.isLoading,
+  playlist: state.setPlaylist
 });
 
 export const mapDispatchToProps = (dispatch) => ({

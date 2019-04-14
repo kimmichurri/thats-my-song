@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Loader from '../../components/Loader/Loader';
 import { getFromPlaylist } from '../../thunks/getFromPlaylist';
+import PlaylistCard from '../../components/PlaylistCard/PlaylistCard';
 
 export class Playlist extends Component {
 
@@ -17,11 +17,21 @@ export class Playlist extends Component {
   }
 
   render() {
-    console.log(this.props);
+    let playlistCards = this.props.playlist.map(song => {
+      return (
+        <PlaylistCard
+          key={song.id}
+          id={song.id}
+          title={song.title}
+          artist={song.artist}
+        />
+      )
+    });
+
     return (
       <div className='playlist-wrapper'>
-      {!this.props.playlist? <Loader /> : <p>you've got props'</p>}
         <h2>Welcome to your Playlist!</h2>
+        {playlistCards}
         <NavLink to='/' id='return-to-search-navlink'>
           <button className='song-info-page-buttons'>Return to Search</button>
       </NavLink> 
