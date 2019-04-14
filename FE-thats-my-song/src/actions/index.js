@@ -17,3 +17,8 @@ export const setCurrentCategory = (category) => ({
   type: 'SET_CURRENT_CATEGORY',
   category
 });
+
+export const setFetchError = (message) => ({
+  type: 'SET_FETCH_ERROR',
+  message
+});
