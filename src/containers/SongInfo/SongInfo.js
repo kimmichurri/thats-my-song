@@ -3,22 +3,20 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchSongs } from '../../thunks/fetchSongs';
 import { setCurrentSong } from '../../actions/index';
+import { NavLink } from 'react-router-dom';
 
 export class SongInfo extends Component {
 
   reSpinCategory = (e) => {
     let url;
     const { value } = e.target
-    console.log(e.target.value);
     switch (value) {
       case 'Wildcard':
         url = `http://voiceboxpdx.com/api/v1/songs/roulette`
-        console.log('wildcard', url);
         this.props.fetchSongs(url)
         break;
       default:
         url = `http://voiceboxpdx.com/api/v1/songs/roulette?tag=${value}`
-        console.log(url);
         this.props.fetchSongs(url)
     }
   }
@@ -42,7 +40,9 @@ export class SongInfo extends Component {
           className='song-info-page-buttons' 
           value={this.props.currentCategory} 
           onClick={this.pickRandomSong}>Spin {this.props.currentCategory} Again</button>
-        <button className='song-info-page-buttons'>Return to Search</button>
+        <NavLink to='/' id='return-to-search-navlink'>
+          <button className='song-info-page-buttons'>Return to Search</button>
+        </NavLink>
       </div>
     )
   }
@@ -50,7 +50,10 @@ export class SongInfo extends Component {
 
 SongInfo.propTypes = {
   currentCategory: PropTypes.string.isRequired,
-  currentSong: PropTypes.object.isRequired
+  currentSong: PropTypes.object.isRequired,
+  songs: PropTypes.array.isRequired,
+  fetchSongs: PropTypes.func.isRequired,
+  setCurrentSong: PropTypes.func.isRequired
 }
 
 export const mapStateToProps = (state) => ({
