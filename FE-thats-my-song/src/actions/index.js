@@ -3,7 +3,7 @@ export const isLoading = (boolean) => ({
   isLoading: boolean
 });
 
-export const setSongs = (songs) => ({
+export const setSongs = (songs) => ({  
   type: 'SET_SONGS',
   songs
 });
@@ -21,4 +21,9 @@ export const setCurrentCategory = (category) => ({
 export const setFetchError = (message) => ({
   type: 'SET_FETCH_ERROR',
   message
+});
+
+export const setPlaylistSongs = (songs) => ({
+  type: 'SET_PLAYLIST_SONGS',
+  songs
 });

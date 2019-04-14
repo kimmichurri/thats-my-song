@@ -14,7 +14,6 @@ import { Playlist } from '../Playlist/Playlist';
 export class App extends Component {
 
   goToPlaylist = () => {
-    console.log('do some playlist stuff now');
     const url = 'http://localhost:3001/api/v1/playlist/';
     this.props.getFromPlaylist(url);
   }
@@ -25,9 +24,9 @@ export class App extends Component {
         <header>
           <NavLink className='playlist-navlink' to='/playlist'>
             <button
-              onClick={this.goToPlaylist}
+              // onClick={this.goToPlaylist}
               className='playlist-button'>Playlist
-              <img className='headphones-icon' src={headphones} />
+              <img className='headphones-icon' src={headphones} alt={'headphones icon for playlist button'}/>
             </button>
           </NavLink>
           <h1 className='main-title'>That's My Song</h1>
@@ -47,12 +46,13 @@ App.propTypes = {
 }
 
 export const mapStateToProps = (state) => ({
-  loading: state.isLoading
+  loading: state.isLoading,
+  playlist: state.setPlaylist
 });
 
 export const mapDispatchToProps = (dispatch) => ({
   fetchSongs: (url) => dispatch(fetchSongs(url)),
-  getFromPlaylist: (url) => dispatch(getFromPlaylist(url))
+  getFromPlaylist: (url) => dispatch(getFromPlaylist(url)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

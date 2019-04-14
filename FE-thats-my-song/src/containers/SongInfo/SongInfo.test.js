@@ -57,7 +57,6 @@ describe('SongInfo', () => {
         ]
       }
       const mappedProps = mapStateToProps(mockState);
-      console.log(mappedProps);
       expect(mappedProps).toEqual(expected);
     });
   });

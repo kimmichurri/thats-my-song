@@ -5,6 +5,7 @@ import { fetchSongs } from '../../thunks/fetchSongs';
 import { setCurrentSong } from '../../actions/index';
 import { NavLink } from 'react-router-dom'; 
 import { sendToPlaylist } from '../../thunks/sendToPlaylist';
+// import { getFromPlaylist } from '../../thunks/getFromPlaylist';
 
 export class SongInfo extends Component {
 
@@ -34,8 +35,16 @@ export class SongInfo extends Component {
     const {title, artist, id} = this.props.currentSong;
     this.props.sendToPlaylist(url, {title, artist, id});
   }
+
+  //  updatePlaylist = () => {
+  //   console.log('do some playlist stuff now');
+  //   const url = 'http://localhost:3001/api/v1/playlist/';
+  //   this.props.getFromPlaylist(url);
+  //   console.log('getToPlaylist', this.props.playlist)
+  // }
   
   render() {
+    console.log(this.props);
     const { title, artist } = this.props.currentSong;
     return (
       <div className='song-info-wrapper'>
@@ -77,7 +86,8 @@ export const mapStateToProps = (state) => ({
 export const mapDispatchToProps = (dispatch) => ({
   fetchSongs: (url) => dispatch(fetchSongs(url)),
   setCurrentSong: (song) => dispatch(setCurrentSong(song)),
-  sendToPlaylist: (url, song) => dispatch(sendToPlaylist(url, song))
+  sendToPlaylist: (url, song) => dispatch(sendToPlaylist(url, song)),
+  // getFromPlaylist: (url) => dispatch(sendToPlaylist(url))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongInfo);
