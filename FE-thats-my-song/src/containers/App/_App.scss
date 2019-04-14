@@ -19,9 +19,8 @@ header {
   color: white;
   font-family: $accent-font;
   font-size: 1.5rem;
-  margin: 15px;
   padding: 10px;
-  width: 25%;
+  width: 200px;
   &:focus {
     outline: 2px solid #5F6E8E;
   }
@@ -31,6 +30,11 @@ header {
     color: #B4A7BC;
     cursor: pointer;
   }
+}
+
+.playlist-navlink {
+  align-self: flex-end;
+  margin: 15px;
 }
 
 .headphones-icon {

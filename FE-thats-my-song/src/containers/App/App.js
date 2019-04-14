@@ -20,7 +20,7 @@ export class App extends Component {
     return (
       <div className="App">
         <header>
-          <NavLink to='/playlist'>
+          <NavLink className='playlist-navlink' to='/playlist'>
             <button
               onClick={this.goToFavorites}
               className='playlist-button'>Playlist
