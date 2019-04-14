@@ -7,15 +7,14 @@ import { getFromPlaylist } from '../../thunks/getFromPlaylist';
 
 export class Playlist extends Component {
 
-  // goToPlaylist = () => {
-  //   const url = 'http://localhost:3001/api/v1/playlist/';
-  //   this.props.getFromPlaylist(url);
-  // }
+  goToPlaylist = () => {
+    const url = 'http://localhost:3001/api/v1/playlist/';
+    this.props.getFromPlaylist(url);
+  }
 
-  // componentDidMount = () => {
-  //  this.goToPlaylist()
-  // }
-
+  componentDidMount = () => {
+   this.goToPlaylist();
+  }
 
   render() {
     console.log(this.props);
@@ -32,18 +31,16 @@ export class Playlist extends Component {
 }
 
 Playlist.propTypes = {
-  // playlist: PropTypes.array.isRequired,
-  // getFromPlaylist: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired
+  playlist: PropTypes.array.isRequired,
+  getFromPlaylist: PropTypes.func.isRequired
 }
 
 export const mapStateToProps = (state) => ({
-  // playlist: state.setPlaylist,
-  loading: state.isLoading
+  playlist: state.setPlaylist,
 });
 
-// export const mapDispatchToProps = (dispatch) => ({
-//   getFromPlaylist: (url) => dispatch(getFromPlaylist(url)),
-// });
+export const mapDispatchToProps = (dispatch) => ({
+  getFromPlaylist: (url) => dispatch(getFromPlaylist(url)),
+});
 
-export default connect(mapStateToProps, null)(Playlist);
+export default connect(mapStateToProps, mapDispatchToProps)(Playlist);
