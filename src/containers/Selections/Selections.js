@@ -3,7 +3,7 @@ import { fetchSongs } from '../../thunks/fetchSongs';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { setCurrentSong, setCurrentCategory} from '../../actions/index';
+import { setCurrentSong, setCurrentCategory } from '../../actions/index';
 
 class  Selections extends Component {
 
@@ -14,12 +14,10 @@ class  Selections extends Component {
     switch (value) {
       case 'Wildcard':
         url = `http://voiceboxpdx.com/api/v1/songs/roulette`
-        console.log('wildcard', url);
         this.props.fetchSongs(url)
         break;
       default: 
         url = `http://voiceboxpdx.com/api/v1/songs/roulette?tag=${value}`
-        console.log(url);
         this.props.fetchSongs(url)
     }
   }
