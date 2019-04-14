@@ -1,5 +1,4 @@
 .song-info-wrapper {
-  border: 2px solid lime;
   padding: 5%;
   display: flex;
   flex-direction: column;
@@ -41,4 +40,10 @@
     cursor: pointer;
     box-shadow: 1px 1px 40px #D65E74;
   }
+}
+
+#return-to-search-navlink {
+  height: 10px;
+  width: 100%;
+  margin-bottom: 20%;
 }
