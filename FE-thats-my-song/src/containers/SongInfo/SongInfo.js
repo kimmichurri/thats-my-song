@@ -30,7 +30,6 @@ export class SongInfo extends Component {
   }
 
   addToPlaylist = () => {
-    console.log('add to playlist');
     const url = 'http://localhost:3001/api/v1/playlist/';
     const {title, artist, id} = this.props.currentSong;
     this.props.sendToPlaylist(url, {title, artist, id});
