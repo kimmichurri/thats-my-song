@@ -22,8 +22,14 @@ label, input {
 
 .spin-me-button-wrapper {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin-bottom: 5%;
+}
+
+.please-select-category {
+  font-family: $accent-font;
+  font-size: 1.5rem;
 }
 
 .spin-me-button {
@@ -44,5 +50,6 @@ label, input {
     background-color: #120c16;
     color: #B4A7BC;
     cursor: pointer;
+    box-shadow: 1px 1px 40px #D65E74;
   }
 }

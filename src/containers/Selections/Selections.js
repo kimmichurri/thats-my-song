@@ -59,7 +59,11 @@ class  Selections extends Component {
           </div>
         </div>
         <div className='spin-me-button-wrapper'>
-          <button onClick={this.pickRandomSong} className='spin-me-button'>Take me to my tune!</button>
+          {!this.props.songs.length && <p className='please-select-category'>please select a category first</p>}
+          <button
+            disabled={!this.props.songs.length}
+            onClick={this.pickRandomSong}
+            className='spin-me-button'>Take me to my {this.props.currentCategory} tune!</button>
         </div>
       </section>
     )
@@ -68,13 +72,15 @@ class  Selections extends Component {
 
 Selections.propTypes = {
   songs: PropTypes.array.isRequired,
+  currentCategory: PropTypes.string.isRequired,
   fetchSongs: PropTypes.func.isRequired,
   setCurrentCategory: PropTypes.func.isRequired,
   setCurrentSong: PropTypes.func.isRequired
 }
 
 export const mapStateToProps = (state) => ({
-  songs: state.setSongs
+  songs: state.setSongs,
+  currentCategory: state.setCurrentCategory
 });
 
 export const mapDispatchToProps = (dispatch) => ({
