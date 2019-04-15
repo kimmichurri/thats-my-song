@@ -4,12 +4,12 @@ import { isLoading, setSongs, setFetchError } from '../../actions';
 describe('fetchSongs', () => {
   let mockUrl;
   let mockDispatch;
-  let mockSongs;
+  let mockResults;
 
   beforeEach(() => {
     mockUrl= 'www.somesongs.com';
     mockDispatch = jest.fn();
-    mockSongs = [
+    mockResults = {songs: [
       {
         "id": 63303,
         "title": "Don't Think Twice It's Alright",
@@ -20,7 +20,7 @@ describe('fetchSongs', () => {
         "title": "There's A Light That Never Goes Out",
         "artist": "Smiths, The"
       }
-    ]
+    ]}
   });
 
   it('should dispatch setFetchError if the response is not ok', async () => {
@@ -42,11 +42,11 @@ describe('fetchSongs', () => {
   it('calls dispatch with setSongs and isLoading(false) if the response is okay', async () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
-      json: () => Promise.resolve(mockSongs)
+      json: () => Promise.resolve(mockResults)
     }));
     const thunk = await fetchSongs(mockUrl);
     await thunk(mockDispatch);
-    expect(mockDispatch).toHaveBeenCalledWith(setSongs(mockSongs));
+    expect(mockDispatch).toHaveBeenCalledWith(setSongs(mockResults.songs));
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false));
   });
 
