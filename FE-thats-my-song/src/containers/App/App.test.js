@@ -5,7 +5,7 @@ jest.mock('../../thunks/fetchSongs');
 
 describe('App', () => {
   let wrapper;
-  let mockProps = {
+  const mockProps = {
     loading: false,
     playlist: [],
     fetchSongs: jest.fn()
