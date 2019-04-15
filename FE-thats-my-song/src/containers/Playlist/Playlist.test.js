@@ -6,7 +6,7 @@ jest.mock('../../thunks/getFromPlaylist');
 describe('Playlist', () => {
   let wrapper;
   const mockProps = {
-    playlist: [],
+    playlist: [{title: 'a song', artist: 'kim', id: 1}],
     getFromPlaylist: jest.fn()
   } 
 

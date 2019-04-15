@@ -5,6 +5,7 @@ exports[`Playlist should match the snapshot 1`] = `
   <h2>
     Welcome to your Playlist!
   </h2>
+  <PlaylistCard id={1} title=\\"a song\\" artist=\\"kim\\" />
   <NavLink to=\\"/\\" id=\\"return-to-search-navlink\\">
     <button className=\\"song-info-page-buttons\\">
       Return to Search
