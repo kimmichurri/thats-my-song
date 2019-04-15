@@ -30,6 +30,33 @@ describe('Selections', () => {
     expect(wrapper.debug()).toMatchSnapshot();
   });
 
+  it('should call setCurrentCategory with a value', () => {
+    const mockEvent = {target: { value: '90s'}};
+    const { value } = mockEvent.target;
+    wrapper.instance().setUrl(mockEvent);
+    expect(wrapper.instance().props.setCurrentCategory).toHaveBeenCalledWith(value);
+  });
+
+  it('should call fetchSongs with the correct URL if the value is WILDCARD', () => {
+    const url = `http://voiceboxpdx.com/api/v1/songs/roulette`;
+    const mockEvent = { target: { value: 'Wildcard' } };
+    wrapper.instance().setUrl(mockEvent);
+    expect(wrapper.instance().props.fetchSongs).toHaveBeenCalledWith(url);
+  });
+
+  it('should call fetchSongs with the correct URL is the value is NOT WILDCARD ', () => {
+    const mockEvent = { target: { value: '90s' } };
+    const url = `http://voiceboxpdx.com/api/v1/songs/roulette?tag=${mockEvent.target.value}`;
+    wrapper.instance().setUrl(mockEvent);
+    expect(wrapper.instance().props.fetchSongs).toHaveBeenCalledWith(url);
+  });
+
+  it.skip('should call setCurrentSong with a randomSong', () => {
+    Math.random = jest.fn().mockImplementation(() => .1)
+    wrapper.instance().pickRandomSong();
+    expect(wrapper.instance().props.setCurrentSong).toHaveBeenCalledWith({song: 'b song'})
+  });
+
   describe('mapStateToProps', () => {
     it('should return songs and current category as props', () => {
       const mockState = {
