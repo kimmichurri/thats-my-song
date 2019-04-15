@@ -1,8 +1,35 @@
-import { mapStateToProps, mapDispatchToProps } from './Selections';
+import React from 'react';
+import { shallow } from 'enzyme';
+import { Selections, mapStateToProps, mapDispatchToProps } from './Selections';
 jest.mock('../../thunks/fetchSongs');
 import { setCurrentCategory, setCurrentSong } from '../../actions';
 
 describe('Selections', () => {
+  let wrapper;
+  const mockProps = {
+    songs: [{title: 'a song', artist: 'kim', id: 1}],
+    currentCategory: 'Rap',
+    fetchSongs: jest.fn(),
+    setCurrentCategory: jest.fn(),
+    setCurrentSong: jest.fn()
+  }
+
+  beforeEach(() => {
+    wrapper = shallow(
+      <Selections 
+        songs={mockProps.songs}
+        currentCategory={mockProps.currentCategory}
+        fetchSongs={mockProps.fetchSongs}
+        setCurrentCategory={mockProps.setCurrentCategory}
+        setCurrentSong={mockProps.setCurrentSong}
+      />
+    )
+  });
+
+  it('should match the snapshot', () => {
+    expect(wrapper.debug()).toMatchSnapshot();
+  });
+
   describe('mapStateToProps', () => {
     it('should return songs and current category as props', () => {
       const mockState = {

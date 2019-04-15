@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { setCurrentSong, setCurrentCategory } from '../../actions/index';
 
-class  Selections extends Component {
+export class Selections extends Component {
 
   setUrl = (e) => {
     let url;
