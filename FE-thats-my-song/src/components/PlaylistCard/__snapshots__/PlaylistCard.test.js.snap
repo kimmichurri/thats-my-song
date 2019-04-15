@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlaylistCard should match the snapshot 1`] = `
+"<div>
+  <h3 />
+  <p />
+  <button value={[undefined]}>
+    Remove
+  </button>
+</div>"
+`;
