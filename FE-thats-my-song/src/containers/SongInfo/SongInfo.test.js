@@ -1,9 +1,66 @@
-import { mapStateToProps, mapDispatchToProps } from './SongInfo';
+import React from 'react';
+import { shallow } from 'enzyme';
+import { SongInfo, mapStateToProps, mapDispatchToProps } from './SongInfo';
 jest.mock('../../thunks/fetchSongs');
 jest.mock('../../thunks/sendToPlaylist');
 import { setCurrentSong } from '../../actions';
 
 describe('SongInfo', () => {
+  let wrapper;
+  const mockProps = {
+    currentCategory: 'Rap',
+    currentSong: {title: 'current song', artist: 'current artist', id: 1 },
+    songs: [{title: 'a song', artist: 'kim', id: 1}],
+    fetchSongs: jest.fn(),
+    setCurrentSong: jest.fn(),
+    sendToPlaylist: jest.fn()
+  }
+
+  beforeEach(() => {
+    wrapper = shallow(
+      <SongInfo 
+        currentCategory={mockProps.currentCategory}
+        currentSong={mockProps.currentSong}
+        songs={mockProps.songs}
+        fetchSongs={mockProps.fetchSongs}
+        setCurrentSong={mockProps.setCurrentSong}
+        sendToPlaylist={mockProps.sendToPlaylist}
+      />
+    )
+  });
+
+  it('should match the snapshot', () => {
+    expect(wrapper.debug()).toMatchSnapshot();
+  });
+
+  it('should call fetchSongs with the correct URL if the value is WILDCARD', () => {
+    const url = `http://voiceboxpdx.com/api/v1/songs/roulette`;
+    const mockEvent = { target: { value: 'Wildcard' } };
+    wrapper.instance().reSpinCategory(mockEvent);
+    expect(wrapper.instance().props.fetchSongs).toHaveBeenCalledWith(url);
+  });
+
+  it('should call fetchSongs with the correct URL if the value is NOT WILDCARD ', () => {
+    const mockEvent = { target: { value: '90s' } };
+    const url = `http://voiceboxpdx.com/api/v1/songs/roulette?tag=${mockEvent.target.value}`;
+    wrapper.instance().reSpinCategory(mockEvent);
+    expect(wrapper.instance().props.fetchSongs).toHaveBeenCalledWith(url);
+  });
+
+  it('should call reSpinCategory with the correct parameters', () => {
+
+  });
+
+  it('should call setCurrentSong with a random song', () => {
+
+  });
+
+  it('should call sendToPlaylist with the correct parameters', () => {
+    const url = 'http://localhost:3001/api/v1/playlist/';
+    wrapper.instance().addToPlaylist();
+    expect(wrapper.instance().props.sendToPlaylist).toHaveBeenCalledWith(url, mockProps.currentSong)
+  });
+
   describe('mapStateToProps', () => {
     it('should return an array of songs, a currentSong and currentCategory', () => {
       const mockState = {

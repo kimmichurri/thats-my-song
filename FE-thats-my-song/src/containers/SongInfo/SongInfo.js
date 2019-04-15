@@ -36,20 +36,19 @@ export class SongInfo extends Component {
   }
   
   render() {
-    console.log(this.props);
     const { title, artist } = this.props.currentSong;
     return (
       <div className='song-info-wrapper'>
         <p className='song-category secondary'>{this.props.currentCategory}</p>
         <h3 className='song-title'>{title}</h3>
         <p className='song-artist secondary'>{artist}</p>
-        <button 
+        <button
           onClick={this.addToPlaylist}
           className='song-info-page-buttons'>Add to Playlist
         </button>
-        <button 
-          className='song-info-page-buttons' 
-          value={this.props.currentCategory} 
+        <button
+          className='song-info-page-buttons'
+          value={this.props.currentCategory}
           onClick={this.pickRandomSong}>Spin {this.props.currentCategory} Again
         </button>
         <NavLink to='/' id='return-to-search-navlink'>
