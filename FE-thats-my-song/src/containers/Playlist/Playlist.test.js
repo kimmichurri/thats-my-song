@@ -1,9 +1,28 @@
-import Playlist, { mapStateToProps, mapDispatchToProps } from './Playlist';
+import  { Playlist, mapStateToProps, mapDispatchToProps } from './Playlist';
 import React from 'react';
 import { shallow } from 'enzyme';
 jest.mock('../../thunks/getFromPlaylist');
 
 describe('Playlist', () => {
+  let wrapper;
+  const mockProps = {
+    playlist: [],
+    getFromPlaylist: jest.fn()
+  } 
+
+  beforeEach(() => {
+    wrapper = shallow(
+      <Playlist 
+        playlist={mockProps.playlist}
+        getFromPlaylist={mockProps.getFromPlaylist}
+      />
+    )
+  });
+
+  it('should match the snapshot', () => {
+    expect(wrapper.debug()).toMatchSnapshot();
+  });
+
   describe('mapStateToProps', () => {
     it('should return a playlist of songs', () => {
       const mockState = {

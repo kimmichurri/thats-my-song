@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Playlist should match the snapshot 1`] = `
+"<div className=\\"playlist-wrapper\\">
+  <h2>
+    Welcome to your Playlist!
+  </h2>
+  <NavLink to=\\"/\\" id=\\"return-to-search-navlink\\">
+    <button className=\\"song-info-page-buttons\\">
+      Return to Search
+    </button>
+  </NavLink>
+</div>"
+`;
