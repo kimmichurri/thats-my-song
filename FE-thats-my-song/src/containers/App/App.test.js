@@ -1,9 +1,27 @@
-import App, { mapStateToProps, mapDispatchToProps } from './App';
+import { App, mapStateToProps, mapDispatchToProps } from './App';
 import React from 'react';
 import { shallow } from 'enzyme';
 jest.mock('../../thunks/fetchSongs');
 
 describe('App', () => {
+  let wrapper;
+  let mockProps = {
+    loading: false,
+    playlist: [],
+    fetchSongs: jest.fn()
+  }
+  beforeEach(() => {
+    wrapper = shallow(
+      <App
+        loading={mockProps.loading}
+        playlist={mockProps.playlist}
+        fetchSongs={mockProps.fetchSongs}
+      />)
+  });
+
+  it('should match the snapshot', () => {
+    expect(wrapper.debug()).toMatchSnapshot();
+  });
 
   describe('mapStateToProps', () => {
     it('should return a boolean to indicate if loading is true or false', () => {

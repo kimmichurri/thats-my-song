@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match the snapshot 1`] = `
+"<div className=\\"App\\">
+  <header>
+    <NavLink className=\\"playlist-navlink\\" to=\\"/playlist\\">
+      <button className=\\"playlist-button\\">
+        Playlist
+        <img className=\\"headphones-icon\\" src=\\"headphones.png\\" alt=\\"headphones icon for playlist button\\" />
+        0
+      </button>
+    </NavLink>
+    <h1 className=\\"main-title\\">
+      That&#39;s My Song
+    </h1>
+  </header>
+  <Route exact={true} path=\\"/\\" component={{...}} />
+  <Route exact={true} path=\\"/song-info\\" component={{...}} />
+  <Route exact={true} path=\\"/playlist\\" component={{...}} />
+</div>"
+`;
