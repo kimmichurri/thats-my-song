@@ -9,6 +9,10 @@
 
 .song-category {
   align-self: flex-end;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  padding: 20px;
 }
 
 .song-title {
@@ -19,6 +23,15 @@
 .secondary {
   font-size: 2rem;
   font-weight: 800;
+}
+
+.current-spin-wrapper {
+  background: rgba($main-pink, 0.7);
+  padding: 50px;
+  box-shadow: 0px 0px 70px;
+  margin-bottom: 5%;
+  min-width: 39%;
+  border-radius: 10px;
 }
 
 .song-info-page-buttons {

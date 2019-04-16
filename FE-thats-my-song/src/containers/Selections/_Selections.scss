@@ -1,6 +1,7 @@
 .genre-selection-radio-wrapper {
   display: flex;
   justify-content: center;
+  margin: 10px 60px;
 }
 
 .genre-selection-labels {
@@ -10,10 +11,17 @@
 }
 
 .inputs-wrapper {
-  margin: 5%;
+  color: white;
+  background: black;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  &:hover {
+    box-shadow: 1px 1px 40px $hover-box-shadow;
+  }
 }
 
 label, input {
@@ -29,7 +37,10 @@ label, input {
 
 .please-select-category {
   font-family: $accent-font;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  background:  $main-pink;
+  padding: 5px 8px;
+  border-radius: 10px;
 }
 
 .spin-me-button {
@@ -50,6 +61,18 @@ label, input {
     background-color: #120c16;
     color: #B4A7BC;
     cursor: pointer;
-    box-shadow: 1px 1px 40px #D65E74;
+    box-shadow: 1px 1px 40px $hover-box-shadow;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .genre-selection-labels, label {
+    font-size: 2rem;
+  }
+  .please-select-category {
+    font-size: 1.5rem;
+  }
+  .spin-me-button {
+    font-size: 1.75rem;
   }
 }

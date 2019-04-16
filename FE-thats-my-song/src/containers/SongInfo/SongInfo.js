@@ -40,8 +40,10 @@ export class SongInfo extends Component {
     return (
       <div className='song-info-wrapper'>
         <p className='song-category secondary'>{this.props.currentCategory}</p>
-        <h3 className='song-title'>{title}</h3>
-        <p className='song-artist secondary'>{artist}</p>
+        <div className='current-spin-wrapper'>
+          <h3 className='song-title'>{title}</h3>
+          <p className='song-artist secondary'>{artist}</p>
+        </div>
         <button
           onClick={this.addToPlaylist}
           className='song-info-page-buttons'>Add to Playlist

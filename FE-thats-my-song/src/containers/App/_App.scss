@@ -7,12 +7,12 @@ header {
   text-align: center;
   font-family: $title-font;
   font-size: 5rem;
-  margin: 8%;
+  margin: 0% 8%;
 }
 
 .playlist-button {
   align-self: flex-end;
-  background-color: #9A385E;
+  background-color: $main-pink;
   border-radius: 10px;
   border: none;
   box-shadow: 1px 0px #62243C;
@@ -26,7 +26,7 @@ header {
   }
   &:hover {
     background-color: #7B2D4B;
-    box-shadow: 1px 0px 20px #D65E74;
+    box-shadow: 1px 0px 20px $hover-box-shadow;
     color: #B4A7BC;
     cursor: pointer;
   }
@@ -40,5 +40,21 @@ header {
 .headphones-icon {
   width: 20px;
   color: white;
+  margin-left: 8px;
 }
 
+@media screen and (max-width: 850px) {
+  .genre-selection-radio-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .main-title {
+    font-size: 3.5rem;
+  }
+  .playlist-button {
+    font-size: 1.25rem;
+  }
+}

@@ -20,7 +20,6 @@ export class App extends Component {
             <button
               className='playlist-button'>Playlist
               <img className='headphones-icon' src={headphones} alt={'headphones icon for playlist button'}/>
-              {this.props.playlist.length}
             </button>
           </NavLink>
           <h1 className='main-title'>That's My Song</h1>
