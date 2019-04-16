@@ -15,7 +15,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
+        <header className='header'>
           <NavLink className='playlist-navlink' to='/playlist'>
             <button
               className='playlist-button'>Playlist

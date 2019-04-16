@@ -43,8 +43,10 @@ export class Playlist extends Component {
 
     return (
       <div className='playlist-wrapper'>
-        <h2>Welcome to your Playlist!</h2>
-        {playlistCards}
+        <h2 className='playlist-title'>Welcome to your Playlist!</h2>
+        <div className='playlist-songs-cards-display'>
+          {playlistCards}
+        </div>
         <NavLink to='/' id='return-to-search-navlink'>
           <button className='song-info-page-buttons'>Return to Search</button>
       </NavLink> 

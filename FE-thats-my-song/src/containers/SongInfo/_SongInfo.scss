@@ -49,7 +49,7 @@
   }
   &:hover {
     background-color: #120c16;
-    box-shadow: 1px 1px 40px #D65E74;
+    box-shadow: 1px 1px 40px $hover-box-shadow;
     color: #B4A7BC;
     cursor: pointer;
   }

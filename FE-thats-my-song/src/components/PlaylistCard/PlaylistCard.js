@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 
 export default function PlaylistCard({title, artist, id, deleteSongFromPlaylist }) {
   return (
-    <div>
-      <h3>{title}</h3>
-      <p>{artist}</p>
-      <button onClick={(e) => deleteSongFromPlaylist(e)} value={id}>Remove</button>
+    <div className='playlist-song-cards'>
+      <h3 className='playlist-songs-title'>{title}</h3>
+      <p className='playlist-artists-title'>{artist}</p>
+      <button 
+        className='remove-song-button' 
+        onClick={(e) => deleteSongFromPlaylist(e)} 
+        value={id}>Remove</button>
     </div>
   )
 }
