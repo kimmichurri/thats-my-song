@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getFromPlaylist } from '../../thunks/getFromPlaylist';
 import PlaylistCard from '../../components/PlaylistCard/PlaylistCard';
+import { deleteSong } from '../../thunks/deleteSong';
+import { deleteFromPlaylist } from '../../actions';
 
 export class Playlist extends Component {
 
@@ -16,6 +18,16 @@ export class Playlist extends Component {
    this.goToPlaylist();
   }
 
+  deleteSongFromPlaylist = (e) => {
+    console.log(e.target.value)
+    const id = e.target.value
+    console.log(typeof id)
+
+    const url = 'http://localhost:3001/api/v1/playlist/:id';
+    this.props.deleteSong(url, id);
+    this.props.deleteFromPlaylist(id);
+  }
+
   render() {
     let playlistCards = this.props.playlist.map(song => {
       return (
@@ -24,6 +36,7 @@ export class Playlist extends Component {
           id={song.id}
           title={song.title}
           artist={song.artist}
+          deleteSongFromPlaylist={this.deleteSongFromPlaylist}
         />
       )
     });
@@ -51,6 +64,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   getFromPlaylist: (url) => dispatch(getFromPlaylist(url)),
+  deleteSong: (url, id) => dispatch(deleteSong(url, id)),
+  deleteFromPlaylist: (id) => dispatch(deleteFromPlaylist(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Playlist);

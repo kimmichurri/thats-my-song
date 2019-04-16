@@ -1,7 +1,13 @@
 export const setPlaylistSongsReducer = (state = [], action) => {
   switch(action.type) {
     case 'SET_PLAYLIST_SONGS':
-      return action.songs
+      return action.songs;
+    case 'DELETE_FROM_PLAYLIST':
+      const newPlaylist = state.filter((song) => {
+        return song.id != action.id
+      });
+      console.log(newPlaylist)
+      return [state, ...newPlaylist];
     default: 
       return state;
   }

@@ -27,3 +27,8 @@ export const setPlaylistSongs = (songs) => ({
   type: 'SET_PLAYLIST_SONGS',
   songs
 });
+
+export const deleteFromPlaylist = (id) => ({
+  type: 'DELETE_FROM_PLAYLIST',
+  id
+});
