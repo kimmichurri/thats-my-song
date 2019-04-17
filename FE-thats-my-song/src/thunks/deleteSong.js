@@ -10,7 +10,6 @@ export const deleteSong = (url, id) => {
       }
     }
     try {
-      console.log(options)
       const response = await fetch(url, options)
       if(!response.ok) {
         throw new Error(response.statusText)
