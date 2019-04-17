@@ -5,12 +5,14 @@ exports[`SongInfo should match the snapshot 1`] = `
   <p className=\\"song-category secondary\\">
     Rap
   </p>
-  <h3 className=\\"song-title\\">
-    current song
-  </h3>
-  <p className=\\"song-artist secondary\\">
-    current artist
-  </p>
+  <div className=\\"current-spin-wrapper\\">
+    <h3 className=\\"song-title\\">
+      current song
+    </h3>
+    <p className=\\"song-artist secondary\\">
+      current artist
+    </p>
+  </div>
   <button onClick={[Function]} className=\\"song-info-page-buttons\\">
     Add to Playlist
   </button>

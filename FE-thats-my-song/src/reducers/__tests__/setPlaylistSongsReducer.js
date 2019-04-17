@@ -15,4 +15,12 @@ describe('setPlaylistSongsReducer', () => {
     const result = setPlaylistSongsReducer(state, action);
     expect(result).toEqual(songs);
   });
+
+  it('should return state with an updated newPlaylist array', () => {
+    const state = [ { title: 'Blue Christmas', id: 1 }, { title: 'Blue Suede Shoes', id: 2 } ];
+    const expected = [ { title: 'Blue Suede Shoes', id: 2 } ]
+    const action = actions.deleteFromPlaylist(1);
+    const result = setPlaylistSongsReducer(state, action);
+    expect(result).toEqual(expected);
+  });
 });

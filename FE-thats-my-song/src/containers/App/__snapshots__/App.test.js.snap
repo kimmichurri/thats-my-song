@@ -2,12 +2,11 @@
 
 exports[`App should match the snapshot 1`] = `
 "<div className=\\"App\\">
-  <header>
+  <header className=\\"header\\">
     <NavLink className=\\"playlist-navlink\\" to=\\"/playlist\\">
       <button className=\\"playlist-button\\">
         Playlist
         <img className=\\"headphones-icon\\" src=\\"headphones.png\\" alt=\\"headphones icon for playlist button\\" />
-        0
       </button>
     </NavLink>
     <h1 className=\\"main-title\\">

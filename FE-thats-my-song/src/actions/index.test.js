@@ -109,4 +109,14 @@ describe('actions', () => {
     expect(result).toEqual(expected);
   });
 
+  it('should return a type of DELETE_FROM_PLAYLIST with an id', () => {
+    const id = 4;
+    const expected = {
+      type: 'DELETE_FROM_PLAYLIST',
+      id
+    }
+    const result = actions.deleteFromPlaylist(id);
+    expect(result).toEqual(expected);
+  });
+
 });
