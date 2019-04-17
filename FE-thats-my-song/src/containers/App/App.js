@@ -22,12 +22,13 @@ export class App extends Component {
               <img className='headphones-icon' src={headphones} alt={'headphones icon for playlist button'}/>
             </button>
           </NavLink>
-          <h1 className='main-title'>That's My Song</h1>
+          {this.props.isLoading? 
+            <Loader /> : <h1 className='main-title'>That's My Song</h1>
+          }
         </header>
         <Route exact path='/' component={Selections} />
         <Route exact path='/song-info' component={SongInfo} />
         <Route exact path='/playlist' component={Playlist} />
-        {/* {!this.props.loading ? <Loader /> : <Selections /> } */}
       </div>
     );
   }
