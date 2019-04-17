@@ -47,12 +47,11 @@ describe('SongInfo', () => {
     expect(wrapper.instance().props.fetchSongs).toHaveBeenCalledWith(url);
   });
 
-  it('should call reSpinCategory with the correct parameters', () => {
-
-  });
-
-  it('should call setCurrentSong with a random song', () => {
-
+  it('pickRandomSong should call reSpinCategory with the correct parameters', () => {
+    const mockEvent = { target: { value: '90s'} };
+    const spy = jest.spyOn(wrapper.instance(), 'reSpinCategory');
+    wrapper.instance().pickRandomSong(mockEvent);
+    expect(spy).toHaveBeenCalledWith(mockEvent);
   });
 
   it('should call sendToPlaylist with the correct parameters', () => {
