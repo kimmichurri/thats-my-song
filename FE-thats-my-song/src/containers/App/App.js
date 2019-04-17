@@ -27,7 +27,7 @@ export class App extends Component {
         <Route exact path='/' component={Selections} />
         <Route exact path='/song-info' component={SongInfo} />
         <Route exact path='/playlist' component={Playlist} />
-        {/* {this.props.loading ? <Loader /> : <Selections /> } */}
+        {/* {!this.props.loading ? <Loader /> : <Selections /> } */}
       </div>
     );
   }
