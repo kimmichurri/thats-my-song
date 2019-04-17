@@ -6,8 +6,7 @@ export const setPlaylistSongsReducer = (state = [], action) => {
       const newPlaylist = state.filter((song) => {
         return song.id != action.id
       });
-      console.log(newPlaylist)
-      return [state, ...newPlaylist];
+      return state = newPlaylist;
     default: 
       return state;
   }
