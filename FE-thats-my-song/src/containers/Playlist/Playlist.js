@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getFromPlaylist } from '../../thunks/getFromPlaylist';
-import PlaylistCard from '../../components/PlaylistCard/PlaylistCard';
+import PlaylistCard from '../../containers/PlaylistCard/PlaylistCard';
 import { deleteSong } from '../../thunks/deleteSong';
 import { deleteFromPlaylist } from '../../actions';
 
