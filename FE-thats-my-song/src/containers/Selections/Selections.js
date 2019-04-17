@@ -58,7 +58,6 @@ export class Selections extends Component {
           </div>
         </div>
         <div className='spin-me-button-wrapper'>
-          {!this.props.songs.length && <p className='please-select-category'>please select a category first</p>}
           <NavLink to='/song-info'>
             <button
               disabled={!this.props.songs.length}
@@ -66,6 +65,7 @@ export class Selections extends Component {
               className='spin-me-button'>Take me to my {this.props.currentCategory} tune!
             </button>
           </NavLink>
+          {!this.props.songs.length && <p className='please-select-category'>please select a category first</p>}
         </div>
       </section>
     )
