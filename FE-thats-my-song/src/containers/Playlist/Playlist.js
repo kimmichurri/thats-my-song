@@ -19,13 +19,11 @@ export class Playlist extends Component {
   }
 
   deleteSongFromPlaylist = (e) => {
-    console.log(e.target.value)
     const id = e.target.value
-    console.log(typeof id)
-
+    const numericId = parseInt(e.target.value);
     const url = `http://localhost:3001/api/v1/playlist/${id}`;
     this.props.deleteSong(url, id);
-    this.props.deleteFromPlaylist(id);
+    this.props.deleteFromPlaylist(numericId);
   }
 
   render() {
