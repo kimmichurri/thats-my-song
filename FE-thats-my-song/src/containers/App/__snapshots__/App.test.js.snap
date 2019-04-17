@@ -13,8 +13,11 @@ exports[`App should match the snapshot 1`] = `
       That&#39;s My Song
     </h1>
   </header>
-  <Route exact={true} path=\\"/\\" component={{...}} />
-  <Route exact={true} path=\\"/song-info\\" component={{...}} />
-  <Route exact={true} path=\\"/playlist\\" component={{...}} />
+  <Switch>
+    <Route exact={true} path=\\"/\\" component={{...}} />
+    <Route path=\\"/song-info\\" component={{...}} />
+    <Route path=\\"/playlist\\" component={{...}} />
+    <Route component={[Function: NotFound]} />
+  </Switch>
 </div>"
 `;

@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import { fetchSongs } from '../../thunks/fetchSongs';
 import Loader from '../../components/Loader/Loader';
 import PropTypes from 'prop-types';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 import SongInfo from '../SongInfo/SongInfo';
 import headphones from '../../assets/headphones.png';
 import Playlist from '../Playlist/Playlist';
+import NotFound from '../../components/NotFound/NotFound';
 
 
 export class App extends Component {
@@ -26,9 +27,12 @@ export class App extends Component {
             <Loader /> : <h1 className='main-title'>That's My Song</h1>
           }
         </header>
-        <Route exact path='/' component={Selections} />
-        <Route exact path='/song-info' component={SongInfo} />
-        <Route exact path='/playlist' component={Playlist} />
+        <Switch>
+          <Route exact path='/' component={Selections} />
+          <Route path='/song-info' component={SongInfo} />
+          <Route path='/playlist' component={Playlist} />
+          <Route component={NotFound} />
+        </Switch>
       </div>
     );
   }
