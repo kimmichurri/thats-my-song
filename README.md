@@ -10,7 +10,7 @@ Kim Achkio Myers
 ### Backend Setup
 Clone down this repo
 cd into BE-thats-my-song and run `npm install`
-npm start and visit `http://localhost:3001` in your browser
+`npm start` and visit `http://localhost:3001` in your browser
 
 ### API Endpoints
 ##### GET playlist `/api/v1/playlist`
