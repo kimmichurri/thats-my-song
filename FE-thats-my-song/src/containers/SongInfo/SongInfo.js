@@ -13,11 +13,11 @@ export class SongInfo extends Component {
     const { value } = e.target
     switch (value) {
       case 'Wildcard':
-        url = `http://voiceboxpdx.com/api/v1/songs/roulette`
+        url = `http://voiceboxpdx.com/api/v1/songs/roulette?organization=d00d11e681934f4688fdce9cebd5afce&session=2b2bc3b9-6bbc-4a39-b147-0758264985f2`
         this.props.fetchSongs(url)
         break;
       default:
-        url = `http://voiceboxpdx.com/api/v1/songs/roulette?tag=${value}`
+        url = `http://voiceboxpdx.com/api/v1/songs/roulette?tag=${value}&organization=d00d11e681934f4688fdce9cebd5afce&session=2b2bc3b9-6bbc-4a39-b147-0758264985f2`
         this.props.fetchSongs(url)
     }
   }
