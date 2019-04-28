@@ -7,10 +7,10 @@ See a song you like? Add it to your playlist to keep track! Hmmm, maybe you don'
 Kim Achkio Myers  
 [Find me on LinkedIn](https://www.linkedin.com/in/kimberly-achkio-myers-85107a2b/)
 
-### Backend Setup
+## Backend Setup
 Clone down this repo
 cd into BE-thats-my-song and run `npm install`
-npm start and visit `http://localhost:3001` in your browser
+`npm start` and visit `http://localhost:3001` in your browser
 
 ### API Endpoints
 ##### GET playlist `/api/v1/playlist`
@@ -24,7 +24,7 @@ Allows users to delete a song from their playlist
 - Node.js
 - Express.js
 
-### Frontend Setup
+## Frontend Setup
 [Instructions for Frontend can be found here](https://github.com/kimmichurri/thats-my-song/tree/master/FE-thats-my-song)
 
 ### Frontend Tech-Frameworks Used:
