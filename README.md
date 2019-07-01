@@ -28,11 +28,17 @@ Allows users to delete a song from their playlist
 [Instructions for Frontend can be found here](https://github.com/kimmichurri/thats-my-song/tree/master/FE-thats-my-song)
 
 ### Frontend Tech-Frameworks Used:
-ReactJS
+
+React
+
 Redux
+
 React-Router
+
 Sass
+
 Fetch API
+
 Testing with Enzyme & Jest
 
 ### That's My Song
