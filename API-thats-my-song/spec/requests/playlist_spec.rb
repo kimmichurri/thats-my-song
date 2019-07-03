@@ -7,11 +7,11 @@ RSpec.describe 'Playlist API', type: :request do
       song2 = Playlist.create(title: 'Bye Bye Bye', artist: '*NSYNC')
 
       get '/api/v1/playlists'
-      playlists = JSON.parse(request.body)
+      playlists = JSON.parse(response.body, symbolize_names: true)
 
       expect(response.status).to eq(200)
       expect(playlists).to be_a(Array)
-      expect(playlists[0].title).to eq(song1.title)
+      expect(playlists[0][:title]).to eq(song1.title)
     end
   end
 end
