@@ -14,4 +14,15 @@ RSpec.describe 'Playlist API', type: :request do
       expect(playlists[0][:title]).to eq(song1.title)
     end
   end
+
+  describe 'Post new song to playlist' do
+    it 'should post a new song to the playlist' do
+      song = {title: 'I want it that way', artist: 'Backstreet Boys'}
+
+      post '/api/v1/playlists', params: song
+
+      expect(response.status).to eq(201)
+      expect(Playlist.count).to eq(1)
+    end
+  end
 end
