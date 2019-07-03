@@ -8,6 +8,11 @@ class Api::V1::PlaylistsController < ApplicationController
     head 201
   end
 
+  def destroy
+    Playlist.destroy(params[:id])
+    head 204
+  end
+
   private
 
   def playlist_params

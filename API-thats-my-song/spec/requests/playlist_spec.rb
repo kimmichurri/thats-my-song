@@ -25,4 +25,15 @@ RSpec.describe 'Playlist API', type: :request do
       expect(Playlist.count).to eq(1)
     end
   end
+
+  describe 'Delete a song from the playlist' do
+    it 'should delete a song from the playlist' do
+      song1 = Playlist.create(title: 'I want it that way', artist: 'Backstreet Boys')
+
+      delete "/api/v1/playlists/#{song1.id}"
+
+      expect(response.status).to eq(204)
+      expect(Playlist.count).to eq(0)
+    end
+  end
 end
