@@ -37,8 +37,6 @@ React-Router
 
 Sass
 
-Fetch API
-
 Testing with Enzyme & Jest
 
 ### That's My Song
@@ -56,4 +54,4 @@ Testing with Enzyme & Jest
 - Allow users to preview lyrics of the song before adding it to their playlist
 - Build this strictly as a mobile app with React Native
 
-[LinkedIn](https://www.linkedin.com/in/kimberly-achkio-myers-85107a2b/)
+[LinkedIn](https://www.linkedin.com/in/kim-achkio-myers-85107a2b/)
