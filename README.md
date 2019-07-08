@@ -5,7 +5,7 @@ See a song you like? Add it to your playlist to keep track! Hmmm, maybe you don'
 
 ## Created by
 Kim Achkio Myers  
-[Find me on LinkedIn](https://www.linkedin.com/in/kimberly-achkio-myers-85107a2b/)
+[Find me on LinkedIn](https://www.linkedin.com/in/kim-achkio-myers-85107a2b/)
 
 ## Backend Setup
 Clone down this repo
